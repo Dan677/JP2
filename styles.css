@@ -82,6 +82,7 @@ body {
   position: relative;
   font-family: "Roboto", sans-serif;
   background-color: var(--background-color);
+   overflow-x: hidden; 
 }
 
 .background {
