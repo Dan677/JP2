@@ -1263,3 +1263,16 @@ header::before {
 .posts__slider .swiper-pagination-bullet-active {
     background-color: var(--primary-color);
 }
+/* FIX CSS pentru caruselul de postări care se strica pe mobil */
+@media (max-width: 768px) {
+    /* Forțează fiecare slide să ocupe exact 100% din lățime */
+    .posts__slider .swiper-slide {
+        width: 100% !important;
+    }
+
+    /* Asigură-te că containerul nu adaugă padding sau margin care să rupă lățimea */
+    .section__container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
