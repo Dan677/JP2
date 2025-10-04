@@ -1276,3 +1276,23 @@ header::before {
         padding-right: 1rem;
     }
 }
+@media (max-width: 768px) {
+    .posts__container {
+        /* Asigură o înălțime minimă ca să nu fie strivită */
+        min-height: 500px;
+    }
+
+    /* Anulează orice ascundere, opacitate zero, sau transformare aplicată de ScrollReveal
+       pe TOATE elementele din interiorul containerului de postări */
+    .posts__container *,
+    .posts__container {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important; /* Anulează orice transformare de tip translate/scale */
+    }
+
+    /* Asigură-te că Swiper-ul de postări folosește 100% lățime pentru swipe */
+    .posts__slider .swiper-slide {
+        width: 100% !important;
+    }
+}
