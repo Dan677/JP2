@@ -75,14 +75,15 @@ ul {
 
 html,
 body {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    width: 100%; /* NOU: Forțează lățimea de 100% */
+    overflow-x: hidden; /* Păstrează ascunderea conținutului ce depășește */
 }
 
 body {
-  position: relative;
-  font-family: "Roboto", sans-serif;
-  background-color: var(--background-color);
-   overflow-x: hidden; 
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    background-color: var(--background-color);
 }
 
 .background {
@@ -1044,8 +1045,14 @@ header::before {
     }
 }
 .stats__container {
-    padding-block: 7rem;
+    padding: 7rem 1.5rem; /* NOU: 7rem sus/jos, 1.5rem stânga/dreapta */
     text-align: center;
+}
+
+@media (width > 768px) {
+    .stats__container {
+        padding: 7rem 5rem; /* Mărește padding-ul pe desktop */
+    }
 }
 
 .stats__grid {
