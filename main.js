@@ -1,7 +1,14 @@
+// === DECLARAȚII GLOBALE ===
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 const menuBtnIcon = menuBtn.querySelector("i");
 
+let swiper; // Global pentru galeria principală
+let swiperReviews; // Global pentru Reviews
+let swiperViews; // Global pentru Views (DESTINATIONS)
+let swiperPosts; // NOU: Global pentru Posts
+
+// === LOGICĂ MENIU MOBIL ===
 menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("open");
 
@@ -17,25 +24,19 @@ navLinks.addEventListener("click", () => {
   menuBtnIcon.setAttribute("class", "ri-menu-4-line");
 });
 
+
+// === CONFIGURARE SCROLLREVEAL ===
 const scrollRevealOption = {
   distance: "50px",
   origin: "bottom",
   duration: 1000,
 };
 
-// Logica de ScrollReveal pentru a nu da eroare la prima rulare (dacă librăria nu e gata)
-if (typeof ScrollReveal !== 'undefined') {
-    ScrollReveal().reveal(".header__container .section__header", {
-      ...scrollRevealOption,
-    });
-}
 
-
-let swiperViews;
-
+// === INIȚIALIZARE SWIPER ===
 if (typeof Swiper !== 'undefined') {
-    // GALERIE ORIGINALĂ: Eliminăm 'const' și adăugăm noua excludere.
-    swiper = new Swiper(".swiper:not(.swiper-reviews, .swiper-views)", {
+    // 1. GALERIE ORIGINALĂ: Eliminăm 'const' (folosește variabila globală)
+    swiper = new Swiper(".swiper:not(.swiper-reviews, .swiper-views, .posts__slider)", { // NOU: excludem si sliderul de postari
       loop: true,
       effect: "coverflow",
       grabCursor: true,
@@ -50,7 +51,7 @@ if (typeof Swiper !== 'undefined') {
       },
     });
 
-    // REVIEWS: SWIPER NOU: Eliminăm 'const'.
+    // 2. REVIEWS: SWIPER NOU: Eliminăm 'const'
     swiperReviews = new Swiper(".swiper-reviews", {
       loop: true,
       grabCursor: true,
@@ -67,15 +68,63 @@ if (typeof Swiper !== 'undefined') {
         },
       },
     });
+
+    // 3. VIEWS (DESTINATIONS): Eliminăm 'const' (fixează miniatura)
+    swiperViews = new Swiper(".swiper-views", {
+        loop: true,
+        grabCursor: true,
+        spaceBetween: 20,
+        centeredSlides: true,
+        slidesPerView: "auto", 
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            768: {
+                spaceBetween: 30,
+            },
+            1024: {
+                spaceBetween: 40,
+            },
+        },
+    });
+
+    // 4. POSTS: Eliminăm 'const' (fixează cele 2 slide-uri)
+    swiperPosts = new Swiper(".posts__slider", {
+      loop: true,
+      grabCursor: true,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      // LOGICA RESPONSIVĂ: Câte slide-uri să afișeze
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
 }
 
 
-// CALCULATOR DE PRET (CORECTAT)
+// === CALCULATOR DE PRET ===
 const calculateBtn = document.getElementById("calculate-btn");
 
-if (calculateBtn) { // Asigură-te că butonul există
+if (calculateBtn) { 
   calculateBtn.addEventListener("click", () => {
-    // Folosim o logică de siguranță pentru a preveni erorile 'null'
     const distanceInput = document.getElementById("distance");
     const sedanCountInput = document.getElementById("sedan-count");
     const truckCountInput = document.getElementById("truck-count");
@@ -89,7 +138,6 @@ if (calculateBtn) { // Asigură-te că butonul există
     const sedanCount = parseFloat(sedanCountInput.value) || 0;
     const truckCount = parseFloat(truckCountInput.value) || 0;
 
-    // Ratele de preț
     const SEDAN_RATE = 1.00;
     const TRUCK_RATE = 1.50;
 
@@ -108,16 +156,17 @@ if (calculateBtn) { // Asigură-te că butonul există
 }
 
 
-// LOGICA SCROLLREVEAL PENTRU SECTIUNILE EXISTENTE (CORECTATĂ CU VERIFICARE)
+// === LOGICA SCROLLREVEAL PENTRU SECTIUNI ===
 if (typeof ScrollReveal !== 'undefined') {
+    ScrollReveal().reveal(".header__container .section__header", {
+      ...scrollRevealOption,
+    });
+    
+    // Animațiile pentru SERVICE și alte secțiuni (nemodificate)
     ScrollReveal().reveal(".service__container .section__subheader", {
       ...scrollRevealOption,
     });
-    ScrollReveal().reveal(".service__container .section__header", {
-      ...scrollRevealOption,
-      delay: 500,
-    });
-
+    // ... (restul animațiilor pentru SERVICE) ...
     ScrollReveal().reveal(".service__row:nth-child(2n-1) img", {
       ...scrollRevealOption,
       origin: "left",
@@ -138,13 +187,41 @@ if (typeof ScrollReveal !== 'undefined') {
       ...scrollRevealOption,
       delay: 1500,
     });
+
+    // 5. FIX CRITIC SWIPER VIEWS: Repară caruselul de Destinații la apariție
+    ScrollReveal().reveal(".views__container", {
+        ...scrollRevealOption,
+        afterReveal: function (el) {
+            if (swiperViews && swiperViews.update) {
+                swiperViews.update();
+            }
+        }
+    });
+
+    // 6. FIX CRITIC SWIPER POSTS: Repară caruselul de Postări la apariție
+    ScrollReveal().reveal(".posts__container .section__header", {
+        ...scrollRevealOption,
+        delay: 300,
+        afterReveal: function (el) {
+            if (swiperPosts && swiperPosts.update) {
+                swiperPosts.update();
+            }
+        }
+    });
+    
+    // NOU: Animație în cascadă pentru cardurile de postări
+    ScrollReveal().reveal(".post__card", {
+      ...scrollRevealOption,
+      interval: 200, 
+      delay: 600,
+    });
 }
 
 
-// LOGICA INSTAGRAM SCROLL
+// === LOGICA INSTAGRAM SCROLL ===
 const instagram = document.querySelector(".instagram__images");
 
-if (instagram) { // Asigură-te că elementul există
+if (instagram) { 
     const instagramContent = Array.from(instagram.children);
 
     instagramContent.forEach((item) => {
@@ -155,9 +232,7 @@ if (instagram) { // Asigură-te că elementul există
 }
 
 
-// === LOGICA FAQ ACORDION FINALĂ ȘI IZOLATĂ ===
-
-// Rulează logica doar după ce întregul DOM este încărcat
+// === LOGICA FAQ ACORDION ===
 document.addEventListener("DOMContentLoaded", function() {
 
     const faqItems = document.querySelectorAll(".faq__item");
@@ -172,39 +247,19 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!question) return;
 
         question.addEventListener("click", () => {
-            // Închide toate celelalte FAQ-uri deschise
             faqItems.forEach((otherItem) => {
                 if (otherItem !== item && otherItem.classList.contains("open")) {
                     otherItem.classList.remove("open");
                 }
             });
 
-            // Deschide/Închide elementul curent
             item.classList.toggle("open");
         });
     });
 });
-if (typeof Swiper !== 'undefined') {
-    const swiperViews = new Swiper(".swiper-views", {
-        loop: true,
-        grabCursor: true,
-        spaceBetween: 20,
-        centeredSlides: true,
-        slidesPerView: "auto", // Afiseaza cate carduri incap
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        breakpoints: {
-            768: {
-                spaceBetween: 30,
-            },
-            1024: {
-                spaceBetween: 40,
-            },
-        },
-    });
-}
+
+
+// === LOGICA DE COUNT UP (Nemodificată, dar mutată la final) ===
 function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (
@@ -218,9 +273,8 @@ function isElementInViewport(el) {
 function countUp(target, duration = 2000) {
     let start = 0;
     const end = parseInt(target.getAttribute('data-target'));
-    const increment = end / (duration / 16); // 16ms = aprox. 60 FPS
+    const increment = end / (duration / 16); 
 
-    // Verifică dacă valoarea este suficient de mare pentru a avea animație
     if (end < 10) {
         target.textContent = end;
         return;
@@ -237,7 +291,6 @@ function countUp(target, duration = 2000) {
     }, 16);
 }
 
-// Funcție care rulează contorul la intrarea în vizualizare
 let hasCounted = false;
 
 function handleScrollCount() {
@@ -249,7 +302,7 @@ function handleScrollCount() {
         statValues.forEach(target => {
             countUp(target);
         });
-        hasCounted = true; // Setează steagul pentru a rula o singură dată
+        hasCounted = true; 
         window.removeEventListener('scroll', handleScrollCount);
     }
 }
@@ -257,35 +310,3 @@ function handleScrollCount() {
 // Asigură-te că funcția se rulează la încărcarea inițială și la scroll
 window.addEventListener('scroll', handleScrollCount);
 window.addEventListener('load', handleScrollCount);
-// NOU: INIȚIALIZARE SWIPER PENTRU POSTĂRI
-if (typeof Swiper !== 'undefined') {
-    const swiperPosts = new Swiper(".posts__slider", {
-      loop: true,
-      grabCursor: true,
-      spaceBetween: 30,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-
-      // LOGICA RESPONSIVĂ: Câte slide-uri să afișeze
-      breakpoints: {
-        // Mobil (implicit)
-        0: {
-          slidesPerView: 1,
-        },
-        // Tabletă
-        768: {
-          slidesPerView: 2,
-        },
-        // Desktop
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-    });
-}

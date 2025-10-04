@@ -164,7 +164,7 @@ header {
   position: relative;
   isolation: isolate;
 
-  background-image: url("assets/header.jpg");
+  background-image: url("assets/header1.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1242,4 +1242,24 @@ header::before {
     .posts__slider .swiper-button-prev {
         display: none;
     }
+}
+.swiper-pagination-bullet {
+    background: #ffffff; /* Setează fundalul la Alb */
+    opacity: 0.6; /* Le face ușor transparente când nu sunt active */
+    width: 8px; /* Poți ajusta dimensiunea */
+    height: 8px; /* Poți ajusta dimensiunea */
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+/* STILUL PENTRU PUNCTUL ACTIV */
+.swiper-pagination-bullet-active {
+    background: var(--primary-color); /* Folosește culoarea Roșu (primary-color) pentru cel activ */
+    opacity: 1; /* Îl face complet opac */
+    transform: scale(1.1); /* Îl face ușor mai mare (opțional, dar recomandat) */
+}
+
+/* Dacă ai deja această regulă, asigură-te că este corectă. */
+/* Am văzut-o anterior, dar trebuie să o combinăm cu stilul de bază: */
+.posts__slider .swiper-pagination-bullet-active {
+    background-color: var(--primary-color);
 }
