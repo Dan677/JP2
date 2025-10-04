@@ -70,25 +70,33 @@ if (typeof Swiper !== 'undefined') {
     });
 
     // 3. VIEWS (DESTINATIONS)
-    swiperViews = new Swiper(".swiper-views", {
-        loop: true,
-        grabCursor: true,
-        spaceBetween: 20,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        breakpoints: {
-            768: {
-                spaceBetween: 30,
-            },
-            1024: {
-                spaceBetween: 40,
-            },
-        },
-    });
+ swiperViews = new Swiper(".swiper-views", {
+         loop: true,
+         grabCursor: true,
+         spaceBetween: 20,
+         centeredSlides: true,
+         slidesPerView: "auto",
+
+         // === NOU: AUTOPLAY ACTIVAT PENTRU VIEWS ===
+         autoplay: {
+             delay: 3500,               // Schimbă slide-ul la fiecare 3.5 secunde
+             disableOnInteraction: false, // Nu se oprește când utilizatorul interacționează
+         },
+
+         pagination: {
+             el: ".swiper-pagination",
+             clickable: true,
+         },
+         // Logica de Breakpoints rămâne intactă:
+         breakpoints: {
+             768: {
+                 spaceBetween: 30,
+             },
+             1024: {
+                 spaceBetween: 40,
+             },
+         },
+     });
 
     // 4. POSTS: ACTUALIZAT PENTRU BARA DE PROGRES
     swiperPosts = new Swiper(".posts__slider", {

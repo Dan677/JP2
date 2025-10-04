@@ -1263,37 +1263,34 @@ header::before {
 .posts__slider .swiper-pagination-bullet-active {
     background-color: var(--primary-color);
 }
-/* FIX CSS pentru caruselul de postări care se strica pe mobil */
 @media (max-width: 768px) {
-    /* Forțează fiecare slide să ocupe exact 100% din lățime */
-    .posts__slider .swiper-slide {
-        width: 100% !important;
+    /* 1. ANULEAZĂ LĂȚIMEA MAXIMĂ GLOBALĂ (FIX CRITIC) */
+    /* Această regulă anulează acel 'max-width: 45rem' care făcea slide-urile prea late. */
+    .swiper-slide {
+        max-width: 100% !important;
     }
 
-    /* Asigură-te că containerul nu adaugă padding sau margin care să rupă lățimea */
-    .section__container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-}
-@media (max-width: 768px) {
+    /* 2. ASIGURĂ VIZIBILITATEA (Anulează ScrollReveal, păstrează înălțimea) */
     .posts__container {
-        /* Asigură o înălțime minimă ca să nu fie strivită */
         min-height: 500px;
     }
-
-    /* Anulează orice ascundere, opacitate zero, sau transformare aplicată de ScrollReveal
-       pe TOATE elementele din interiorul containerului de postări */
     .posts__container *,
     .posts__container {
         visibility: visible !important;
         opacity: 1 !important;
-        transform: none !important; /* Anulează orice transformare de tip translate/scale */
+        transform: none !important;
     }
 
-    /* Asigură-te că Swiper-ul de postări folosește 100% lățime pentru swipe */
+    /* 3. FIX DE SWIPER: Forțează fiecare slide la 100% și elimină spațiul rămas */
     .posts__slider .swiper-slide {
         width: 100% !important;
+        margin-right: 0 !important; /* Elimină spațiul dintre slide-uri forțat de Swiper */
+    }
+
+    /* 4. Asigură padding corect pe containerul general (preluat din cel vechi) */
+    .section__container {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 .posts__slider .swiper-progress-bar {
