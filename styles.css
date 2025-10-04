@@ -1101,8 +1101,19 @@ header::before {
 
 .breakdown__grid {
     display: grid;
+    /* PE DESKTOP (SAU PE ORICE ECRAN MAI MARE DE 768PX): 3 coloane */
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+}
+
+/* NOU: MEDIA QUERY PENTRU ECRANELE MICI (MOBILE) */
+@media (max-width: 768px) {
+    .breakdown__grid {
+        /* FIX: Pe ecrane mici, folosește O SINGURĂ coloană, forțând alinierea pe verticală */
+        grid-template-columns: repeat(1, 1fr);
+        /* Adaugă spațiu mai mare între rânduri pe verticală (opțional) */
+        gap: 1.5rem;
+    }
 }
 
 .breakdown__item {
