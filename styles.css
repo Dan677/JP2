@@ -1296,3 +1296,16 @@ header::before {
         width: 100% !important;
     }
 }
+.posts__slider .swiper-progress-bar {
+    position: relative;
+    height: 4px;
+    background: var(--text-light);
+    opacity: 0.2;
+    margin-top: 2rem;
+    max-width: 80%;
+    margin-inline: auto;
+}
+
+.posts__slider .swiper-progress-bar .swiper-pagination-progressbar-fill {
+    background: var(--primary-color);
+}

@@ -35,8 +35,8 @@ const scrollRevealOption = {
 
 // === INIȚIALIZARE SWIPER ===
 if (typeof Swiper !== 'undefined') {
-    // 1. GALERIE ORIGINALĂ: Eliminăm 'const' (folosește variabila globală)
-    swiper = new Swiper(".swiper:not(.swiper-reviews, .swiper-views, .posts__slider)", { // NOU: excludem si sliderul de postari
+    // 1. GALERIE ORIGINALĂ
+    swiper = new Swiper(".swiper:not(.swiper-reviews, .swiper-views, .posts__slider)", {
       loop: true,
       effect: "coverflow",
       grabCursor: true,
@@ -51,7 +51,7 @@ if (typeof Swiper !== 'undefined') {
       },
     });
 
-    // 2. REVIEWS: SWIPER NOU: Eliminăm 'const'
+    // 2. REVIEWS
     swiperReviews = new Swiper(".swiper-reviews", {
       loop: true,
       grabCursor: true,
@@ -69,13 +69,13 @@ if (typeof Swiper !== 'undefined') {
       },
     });
 
-    // 3. VIEWS (DESTINATIONS): Eliminăm 'const' (fixează miniatura)
+    // 3. VIEWS (DESTINATIONS)
     swiperViews = new Swiper(".swiper-views", {
         loop: true,
         grabCursor: true,
         spaceBetween: 20,
         centeredSlides: true,
-        slidesPerView: "auto", 
+        slidesPerView: "auto",
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
@@ -90,15 +90,19 @@ if (typeof Swiper !== 'undefined') {
         },
     });
 
-    // 4. POSTS: Eliminăm 'const' (fixează cele 2 slide-uri)
+    // 4. POSTS: ACTUALIZAT PENTRU BARA DE PROGRES
     swiperPosts = new Swiper(".posts__slider", {
       loop: true,
       grabCursor: true,
       spaceBetween: 30,
+
+      // === BARA DE PROGRES: MODIFICARE CRUCIALĂ ===
       pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+        el: ".swiper-progress-bar", // Selectorul pentru bara de progres din HTML
+        type: "progressbar",        // Activează modul bară de progres
       },
+
+      // Navigație: Folosește butoanele de navigare (chiar dacă sunt stilizate diferit)
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
