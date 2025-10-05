@@ -76,8 +76,8 @@ ul {
 html,
 body {
     scroll-behavior: smooth;
-    width: 100%; /* NOU: Forțează lățimea de 100% */
-    overflow-x: hidden; /* Păstrează ascunderea conținutului ce depășește */
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -202,7 +202,7 @@ header::before {
   width: 100%;
 }
 
-/* REGULA ORIGINALĂ, FĂRĂ !important PENTRU DESKTOP */
+/* REGULA ORIGINALĂ PENTRU DESKTOP */
 .swiper-slide {
   max-width: 45rem;
 }
@@ -263,10 +263,17 @@ header::before {
   border-left: 5px solid var(--primary-color);
 }
 .service__item h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--white);
+}
+.service__item h4 i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
 }
 .service__item p {
   color: var(--text-light);
@@ -380,7 +387,7 @@ header::before {
   margin-bottom: 0.3rem;
   font-weight: 500;
 }
-.price__calculator input {
+.price__calculator input, .price__calculator select {
   width: 100%;
   padding: 0.75rem;
   background-color: var(--background-color);
@@ -1134,17 +1141,6 @@ header::before {
         grid-template-columns: repeat(4, 1fr); /* 4 coloane pe desktop */
     }
 }
-.service__item h4 {
-    display: flex; /* Activează Flexbox */
-    align-items: center; /* Centrează vertical iconița și textul */
-    gap: 0.75rem; /* Adaugă spațiu între iconiță și text */
-}
-
-/* Stilul iconiței */
-.service__item h4 i {
-    font-size: 1.5rem; /* Mărimea iconiței */
-    color: var(--primary-color); /* Culoarea primară */
-}
 /* NOU: POSTS / STORIES FROM THE ROAD STYLES */
 .posts__container {
     padding-block: 7rem;
@@ -1210,8 +1206,19 @@ header::before {
 
 /* 3. STILIZARE NAVIGAȚIE SWIPER */
 /* Punctele de paginare */
-.posts__slider .swiper-pagination-bullet-active {
-    background-color: var(--primary-color);
+.swiper-pagination-bullet {
+    background: #ffffff;
+    opacity: 0.6;
+    width: 8px;
+    height: 8px;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+/* STILUL PENTRU PUNCTUL ACTIV */
+.swiper-pagination-bullet-active {
+    background: var(--primary-color);
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Săgețile de navigare (Next/Prev) */
@@ -1220,7 +1227,6 @@ header::before {
     color: var(--primary-color);
     top: 50%; /* Centrează vertical săgețile */
     transform: translateY(-50%);
-    /* Asigură că săgețile sunt vizibile chiar și pe mobil */
     opacity: 0.8;
     transition: opacity 0.3s;
 }
@@ -1228,28 +1234,6 @@ header::before {
 .posts__slider .swiper-button-next:hover,
 .posts__slider .swiper-button-prev:hover {
     opacity: 1;
-}
-
-/* Ascunde săgețile pe ecranele foarte mici, dacă dorești să forțezi swipe-ul */
-@media (max-width: 600px) {
-    .posts__slider .swiper-button-next,
-    .posts__slider .swiper-button-prev {
-        display: none;
-    }
-}
-.swiper-pagination-bullet {
-    background: #ffffff; /* Setează fundalul la Alb */
-    opacity: 0.6; /* Le face ușor transparente când nu sunt active */
-    width: 8px; /* Poți ajusta dimensiunea */
-    height: 8px; /* Poți ajusta dimensiunea */
-    transition: opacity 0.3s, background-color 0.3s;
-}
-
-/* STILUL PENTRU PUNCTUL ACTIV */
-.swiper-pagination-bullet-active {
-    background: var(--primary-color); /* Folosește culoarea Roșu (primary-color) pentru cel activ */
-    opacity: 1; /* Îl face complet opac */
-    transform: scale(1.1); /* Îl face ușor mai mare (opțional, dar recomandat) */
 }
 
 /* BARA DE PROGRES (DEFAULT PENTRU DESKTOP) */
@@ -1279,7 +1263,7 @@ header::before {
     .posts__container {
         visibility: visible !important;
         opacity: 1 !important;
-        transform: none !important; /* Anulează orice transformare */
+        transform: none !important;
     }
 
     /* 2. FIXURI LĂȚIME SWIPER (REZOLVĂ CARTELE TĂIATE) */
@@ -1289,16 +1273,13 @@ header::before {
         max-width: 100% !important;
     }
 
-    /* FIX CRITIC: FORȚEAZĂ LĂȚIMEA SLIDE-ULUI DE POSTĂRI PE MOBIL */
-    .posts__slider .swiper-slide {
-        /* Calculează 100% din ecran (100vw) minus 2rem padding-ul de 1rem stânga/dreapta al secțiunii */
+    /* FIX CRITIC FINAL: FORȚEAZĂ LĂȚIMEA SLIDE-ULUI DE POSTĂRI PE MOBIL */
+    .posts__slider > .swiper-wrapper > .swiper-slide {
+        /* Calculează 100% din ecran (100vw) minus 2rem padding-ul secțiunii */
         width: calc(100vw - 2rem) !important;
 
         /* Poziționează slide-ul exact după padding-ul de 1rem al containerului */
         margin-left: 1rem !important;
-
-        /* Elimină spațiul suplimentar dintre slide-uri */
-        margin-right: 0 !important;
     }
 
     /* Asigură că padding-ul secțiunii nu cauzează scroll orizontal pe mobil. */
@@ -1308,10 +1289,10 @@ header::before {
         overflow-x: hidden;
     }
 
-    /* 3. FIXURI BARA DE PROGRES */
+    /* 3. FIXURI BARA DE PROGRES (MAI SCURTĂ ȘI MAI SUBȚIRE) */
     .posts__slider .swiper-progress-bar {
         height: 2px;
-        max-width: 95%;
+        max-width: 80%; /* Scurtată la 80% */
         margin-inline: auto;
     }
 
@@ -1320,8 +1301,13 @@ header::before {
         grid-template-columns: repeat(1, 1fr);
         gap: 1.5rem;
     }
-    /* 5. Păstrează regula pentru stats__grid (2 coloane pe mobil) */
     .stats__grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Ascunde săgețile de navigare pe mobil */
+    .posts__slider .swiper-button-next,
+    .posts__slider .swiper-button-prev {
+        display: none;
     }
 }

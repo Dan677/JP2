@@ -35,7 +35,7 @@ const scrollRevealOption = {
 
 // === INIȚIALIZARE SWIPER ===
 if (typeof Swiper !== 'undefined') {
-    // 1. GALERIE ORIGINALĂ
+    // 1. GALERIE ORIGINALĂ (FIX: loop: true este aici și funcționează acum)
     swiper = new Swiper(".swiper:not(.swiper-reviews, .swiper-views, .posts__slider)", {
       loop: true,
       effect: "coverflow",
@@ -70,17 +70,17 @@ if (typeof Swiper !== 'undefined') {
     });
 
     // 3. VIEWS (DESTINATIONS)
- swiperViews = new Swiper(".swiper-views", {
+     swiperViews = new Swiper(".swiper-views", {
          loop: true,
          grabCursor: true,
          spaceBetween: 20,
          centeredSlides: true,
          slidesPerView: "auto",
 
-         // === NOU: AUTOPLAY ACTIVAT PENTRU VIEWS ===
+         // === AUTOPLAY ACTIVAT PENTRU VIEWS ===
          autoplay: {
-             delay: 3500,               // Schimbă slide-ul la fiecare 3.5 secunde
-             disableOnInteraction: false, // Nu se oprește când utilizatorul interacționează
+             delay: 3500,
+             disableOnInteraction: false,
          },
 
          pagination: {
@@ -98,44 +98,54 @@ if (typeof Swiper !== 'undefined') {
          },
      });
 
-    // 4. POSTS: ACTUALIZAT PENTRU BARA DE PROGRES
+    // 4. POSTS: CORECTAT PENTRU MOBIL ȘI DESKTOP
     swiperPosts = new Swiper(".posts__slider", {
-      loop: true,
+      loop: true, // FIX: Loop-ul este activat
       grabCursor: true,
-      spaceBetween: 30,
+      spaceBetween: 30, // Default for large screens
 
-      // === BARA DE PROGRES: MODIFICARE CRUCIALĂ ===
+      // Autoplay
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+
+      // BARA DE PROGRES
       pagination: {
-        el: ".swiper-progress-bar", // Selectorul pentru bara de progres din HTML
-        type: "progressbar",        // Activează modul bară de progres
+        el: ".posts__slider .swiper-progress-bar",
+        type: "progressbar",
       },
 
-      // Navigație: Folosește butoanele de navigare (chiar dacă sunt stilizate diferit)
+      // Navigație (if used)
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".posts__slider .swiper-button-next",
+        prevEl: ".posts__slider .swiper-button-prev",
       },
 
-      // LOGICA RESPONSIVĂ: Câte slide-uri să afișeze
+      // LOGICA RESPONSIVĂ
       breakpoints: {
         0: {
           slidesPerView: 1,
+          spaceBetween: 0, // FIX CRITIC PENTRU MOBIL
         },
         768: {
           slidesPerView: 2,
+          spaceBetween: 20,
         },
         1024: {
           slidesPerView: 3,
+          spaceBetween: 30,
         },
       },
     });
-}
+
+} // End of if (typeof Swiper !== 'undefined')
 
 
 // === CALCULATOR DE PRET ===
 const calculateBtn = document.getElementById("calculate-btn");
 
-if (calculateBtn) { 
+if (calculateBtn) {
   calculateBtn.addEventListener("click", () => {
     const distanceInput = document.getElementById("distance");
     const sedanCountInput = document.getElementById("sedan-count");
@@ -173,7 +183,7 @@ if (typeof ScrollReveal !== 'undefined') {
     ScrollReveal().reveal(".header__container .section__header", {
       ...scrollRevealOption,
     });
-    
+
     // Animațiile pentru SERVICE și alte secțiuni (nemodificate)
     ScrollReveal().reveal(".service__container .section__subheader", {
       ...scrollRevealOption,
@@ -220,11 +230,11 @@ if (typeof ScrollReveal !== 'undefined') {
             }
         }
     });
-    
+
     // NOU: Animație în cascadă pentru cardurile de postări
     ScrollReveal().reveal(".post__card", {
       ...scrollRevealOption,
-      interval: 200, 
+      interval: 200,
       delay: 600,
     });
 }
@@ -233,7 +243,7 @@ if (typeof ScrollReveal !== 'undefined') {
 // === LOGICA INSTAGRAM SCROLL ===
 const instagram = document.querySelector(".instagram__images");
 
-if (instagram) { 
+if (instagram) {
     const instagramContent = Array.from(instagram.children);
 
     instagramContent.forEach((item) => {
@@ -271,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// === LOGICA DE COUNT UP (Nemodificată, dar mutată la final) ===
+// === LOGICA DE COUNT UP ===
 function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (
@@ -285,7 +295,7 @@ function isElementInViewport(el) {
 function countUp(target, duration = 2000) {
     let start = 0;
     const end = parseInt(target.getAttribute('data-target'));
-    const increment = end / (duration / 16); 
+    const increment = end / (duration / 16);
 
     if (end < 10) {
         target.textContent = end;
@@ -314,7 +324,7 @@ function handleScrollCount() {
         statValues.forEach(target => {
             countUp(target);
         });
-        hasCounted = true; 
+        hasCounted = true;
         window.removeEventListener('scroll', handleScrollCount);
     }
 }
