@@ -1295,14 +1295,28 @@ header::before {
 }
 .posts__slider .swiper-progress-bar {
     position: relative;
-    height: 4px;
+    height: 4px; /* Înălțimea default (desktop) */
     background: var(--text-light);
     opacity: 0.2;
     margin-top: 2rem;
-    max-width: 80%;
+    max-width: 80%; /* Lățimea default (desktop) */
     margin-inline: auto;
 }
 
 .posts__slider .swiper-progress-bar .swiper-pagination-progressbar-fill {
     background: var(--primary-color);
+}
+
+/* === NOU: AJUSTĂRI PENTRU MOBIL === */
+@media (max-width: 768px) {
+    .posts__slider .swiper-progress-bar {
+        /* 1. MICȘORARE: Reducem înălțimea barei (Opțional, de la 4px la 2px) */
+        height: 2px;
+
+        /* 2. LĂȚIME: O facem să ocupe aproape toată lățimea disponibilă */
+        max-width: 95%;
+
+        /* Asigură centrare */
+        margin-inline: auto;
+    }
 }
