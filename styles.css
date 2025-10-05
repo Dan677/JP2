@@ -1274,13 +1274,14 @@ header::before {
     }
 
     /* FIX CRITIC FINAL: FORȚEAZĂ LĂȚIMEA SLIDE-ULUI DE POSTĂRI PE MOBIL */
-    .posts__slider > .swiper-wrapper > .swiper-slide {
-        /* Calculează 100% din ecran (100vw) minus 2rem padding-ul secțiunii */
-        width: calc(100vw - 2rem) !important;
+   .posts__slider > .swiper-wrapper > .swiper-slide {
+       /* Calculează lățimea: 100% din viewport minus un spațiu de 5rem (80px) */
+       width: calc(100vw - 5rem) !important;
 
-        /* Poziționează slide-ul exact după padding-ul de 1rem al containerului */
-        margin-left: 1rem !important;
-    }
+       /* Aliniază primul slide cu padding-ul stânga de 1rem al secțiunii */
+       margin-left: 1rem !important;
+       margin-right: 0 !important;
+   }
 
     /* Asigură că padding-ul secțiunii nu cauzează scroll orizontal pe mobil. */
     .section__container {
