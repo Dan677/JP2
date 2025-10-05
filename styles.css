@@ -202,6 +202,7 @@ header::before {
   width: 100%;
 }
 
+/* REGULA ORIGINALĂ, FĂRĂ !important PENTRU DESKTOP */
 .swiper-slide {
   max-width: 45rem;
 }
@@ -393,6 +394,9 @@ header::before {
   margin-top: 1rem;
   background-color: var(--primary-color);
 }
+.price__calculator .btn:hover {
+    background-color: #b3161a;
+}
 .price__calculator #result {
   margin-top: 1.5rem;
   padding-top: 1rem;
@@ -418,7 +422,7 @@ header::before {
 .pricing__factors__grid {
     display: grid;
     gap: 2rem;
-     margin-top: 4rem; 
+     margin-top: 4rem;
 }
 .factor__card {
     padding: 1.5rem;
@@ -1106,16 +1110,6 @@ header::before {
     gap: 1.5rem;
 }
 
-/* NOU: MEDIA QUERY PENTRU ECRANELE MICI (MOBILE) */
-@media (max-width: 768px) {
-    .breakdown__grid {
-        /* FIX: Pe ecrane mici, folosește O SINGURĂ coloană, forțând alinierea pe verticală */
-        grid-template-columns: repeat(1, 1fr);
-        /* Adaugă spațiu mai mare între rânduri pe verticală (opțional) */
-        gap: 1.5rem;
-    }
-}
-
 .breakdown__item {
     padding: 1rem;
     border: 1px solid var(--text-light);
@@ -1258,48 +1252,14 @@ header::before {
     transform: scale(1.1); /* Îl face ușor mai mare (opțional, dar recomandat) */
 }
 
-/* Dacă ai deja această regulă, asigură-te că este corectă. */
-/* Am văzut-o anterior, dar trebuie să o combinăm cu stilul de bază: */
-.posts__slider .swiper-pagination-bullet-active {
-    background-color: var(--primary-color);
-}
-@media (max-width: 768px) {
-    /* 1. ANULEAZĂ LĂȚIMEA MAXIMĂ GLOBALĂ (FIX CRITIC) */
-    /* Această regulă anulează acel 'max-width: 45rem' care făcea slide-urile prea late. */
-    .swiper-slide {
-        max-width: 100% !important;
-    }
-
-    /* 2. ASIGURĂ VIZIBILITATEA (Anulează ScrollReveal, păstrează înălțimea) */
-    .posts__container {
-        min-height: 500px;
-    }
-    .posts__container *,
-    .posts__container {
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: none !important;
-    }
-
-    /* 3. FIX DE SWIPER: Forțează fiecare slide la 100% și elimină spațiul rămas */
-    .posts__slider .swiper-slide {
-        width: 100% !important;
-        margin-right: 0 !important; /* Elimină spațiul dintre slide-uri forțat de Swiper */
-    }
-
-    /* 4. Asigură padding corect pe containerul general (preluat din cel vechi) */
-    .section__container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-}
+/* BARA DE PROGRES (DEFAULT PENTRU DESKTOP) */
 .posts__slider .swiper-progress-bar {
     position: relative;
-    height: 4px; /* Înălțimea default (desktop) */
+    height: 4px;
     background: var(--text-light);
     opacity: 0.2;
     margin-top: 2rem;
-    max-width: 80%; /* Lățimea default (desktop) */
+    max-width: 80%;
     margin-inline: auto;
 }
 
@@ -1307,16 +1267,61 @@ header::before {
     background: var(--primary-color);
 }
 
-/* === NOU: AJUSTĂRI PENTRU MOBIL === */
+
+/* FIX FINAL ȘI UNIFICAT PENTRU ECRANE MOBILE (MAX 768PX) */
 @media (max-width: 768px) {
+
+    /* 1. FIXURI DE VIZIBILITATE (Anulează ScrollReveal pentru Postări) */
+    .posts__container {
+        min-height: 500px;
+    }
+    .posts__container *,
+    .posts__container {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important; /* Anulează orice transformare */
+    }
+
+    /* 2. FIXURI LĂȚIME SWIPER (REZOLVĂ CARTELE TĂIATE) */
+
+    /* Anulează lățimea maximă globală pe mobil */
+    .swiper-slide {
+        max-width: 100% !important;
+    }
+
+    /* FIX CRITIC: FORȚEAZĂ LĂȚIMEA SLIDE-ULUI DE POSTĂRI PE MOBIL */
+    .posts__slider .swiper-slide {
+        /* Calculează 100% din ecran (100vw) minus 2rem padding-ul de 1rem stânga/dreapta al secțiunii */
+        width: calc(100vw - 2rem) !important;
+
+        /* Poziționează slide-ul exact după padding-ul de 1rem al containerului */
+        margin-left: 1rem !important;
+
+        /* Elimină spațiul suplimentar dintre slide-uri */
+        margin-right: 0 !important;
+    }
+
+    /* Asigură că padding-ul secțiunii nu cauzează scroll orizontal pe mobil. */
+    .section__container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        overflow-x: hidden;
+    }
+
+    /* 3. FIXURI BARA DE PROGRES */
     .posts__slider .swiper-progress-bar {
-        /* 1. MICȘORARE: Reducem înălțimea barei (Opțional, de la 4px la 2px) */
         height: 2px;
-
-        /* 2. LĂȚIME: O facem să ocupe aproape toată lățimea disponibilă */
         max-width: 95%;
-
-        /* Asigură centrare */
         margin-inline: auto;
+    }
+
+    /* 4. FIX pentru Breakdown Grid (Statistică) */
+    .breakdown__grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1.5rem;
+    }
+    /* 5. Păstrează regula pentru stats__grid (2 coloane pe mobil) */
+    .stats__grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
