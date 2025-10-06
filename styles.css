@@ -1312,3 +1312,33 @@ header::before {
         display: none;
     }
 }
+@media (max-width: 767px) {
+    /* 1. Schimbarea Layout-ului din 2 coloane în 1 coloană */
+    /* Aplică display: block sau flex/grid cu o singură coloană elementului părinte */
+    .metrics-container { /* Înlocuiește cu clasa containerului tău */
+        display: flex; /* sau display: grid */
+        flex-direction: column; /* Stivuiește elementele pe verticală */
+        gap: 20px; /* Adaugă spațiu între carduri (dacă nu e deja) */
+        padding: 0 15px; /* Adaugă spațiu lateral pentru a nu atinge marginile ecranului */
+    }
+
+    /* Asigură-te că fiecare card individual ocupă lățimea completă */
+    .metric-box { /* Înlocuiește cu clasa cardului individual */
+        width: 100%;
+        max-width: none; /* Elimină orice limită de lățime setată anterior */
+        margin: 0 auto; /* Centrează cardul, deși width: 100% ar trebui să fie suficient */
+        padding: 25px 15px; /* Ajustează padding-ul intern al cardului */
+    }
+
+    /* 2. Ajustarea Mărimii Fonturilor */
+    /* Numărul mare */
+    .metric-box h3 { /* Sau clasa/tag-ul pentru număr (e.g., 11320) */
+        font-size: 3.5rem; /* Redu mărimea pentru a se potrivi mai bine */
+        line-height: 1.1;
+    }
+
+    /* Eticheta mică */
+    .metric-box p { /* Sau clasa/tag-ul pentru textul descriptiv (e.g., Satisfied Clients) */
+        font-size: 1rem; /* Asigură o mărime lizibilă */
+    }
+}
