@@ -332,3 +332,18 @@ function handleScrollCount() {
 // Asigură-te că funcția se rulează la încărcarea inițială și la scroll
 window.addEventListener('scroll', handleScrollCount);
 window.addEventListener('load', handleScrollCount);
+// === TOGGLE STORIES (More/Less) ===
+const toggleStoriesBtn = document.getElementById("toggle-stories");
+const extraStories = document.querySelectorAll(".extra-story");
+
+if (toggleStoriesBtn) {
+  toggleStoriesBtn.addEventListener("click", () => {
+    const isHidden = extraStories[0].classList.contains("hidden");
+
+    extraStories.forEach(story => {
+      story.classList.toggle("hidden");
+    });
+
+    toggleStoriesBtn.textContent = isHidden ? "LESS STORIES" : "MORE STORIES";
+  });
+}
