@@ -1023,6 +1023,75 @@
     </div>
   </div>
 </section>
+
+Înțeleg. Îmi cer scuze pentru lipsa de atenție. Voi folosi fișierele tale existente (index.html, styles.css) pentru a integra secțiunea "Process" (Proces) într-un mod care să se potrivească cu stilul tău general (fundal închis, culori de accent roșu/alb).
+
+1. Integrarea HTML (în index.html)
+Voi folosi clasa ta existentă .section__container pentru a menține alinierea consistentă. Adaugă codul de mai jos înainte de secțiunea <footer> sau acolo unde dorești să apară pe pagină (de exemplu, după secțiunea STATS).
+
+  HTML
+
+  <section class="process-section" id="process">
+    <div class="section__container">
+      <h2 class="section__header">OUR SIMPLE SHIPPING PROCESS</h2>
+      <p class="section__subheader">
+        THE EASIEST WAY TO TRANSPORT YOUR VEHICLE
+      </p>
+
+      <div class="process-steps">
+        <div class="process-step-card">
+          <div class="step-icon">
+            <i class="ri-search-line"></i>
+            <div class="step-number">1</div>
+          </div>
+          <h3>COMPLETE OUR FORM</h3>
+          <p>
+            Fill out our quick and secure request form** with your vehicle details and desired destination.
+            We immediately check the availability of our dedicated fleet transport carriers.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <div class="step-icon">
+            <i class="ri-bank-card-line"></i>
+            <div class="step-number">2</div>
+          </div>
+          <h3>WE SEND YOU THE QUOTE</h3>
+          <p>
+            We promptly send you a complete, transparent quote and the necessary carrier details.
+            Review the competitive estimate and confirm the booking online or over the phone when you are ready to proceed.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <div class="step-icon">
+            <i class="ri-car-line"></i>
+            <div class="step-number">3</div>
+          </div>
+          <h3>VEHICLE IS PICKED UP</h3>
+          <p>
+            A fully insured and vetted driver contacts you, inspects the vehicle
+            upon pickup, and begins the transit. You receive real-time updates along the way.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <div class="step-icon">
+            <i class="ri-car-line"></i>
+            <div class="step-number">4</div>
+          </div>
+          <h3>VEHICLE IS DELIVERED</h3>
+          <p>
+            The insured driver contacts you to arrange the final drop-off.
+            Your vehicle is promptly and safely delivered to the agreed location, where you perform a final inspection and sign the release form.
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
 <footer>
   <div class="section__container footer__container" id="contact">
     <div class="footer__col">

@@ -1399,3 +1399,129 @@ header::before {
   text-align: center;
   margin-top: 2rem;
 }
+Sigur. Pentru a aranja cardurile pe 4 coloane pe ecranele mari și pentru a le face mai compacte, trebuie să modificăm proprietățile CSS flex și padding pentru .process-step-card și să actualizăm media query-urile pentru responsivitate.
+
+Iată codul CSS revizuit pe care trebuie să îl folosești în fișierul styles.css:
+
+Cod CSS Modificat (4 Coloane)
+Înlocuiește întregul bloc de stiluri pentru secțiunea PROCESS și secțiunea RESPONSIVE DESIGN cu acest cod:
+
+CSS
+
+/* === OUR PROCESS SECTION === */
+.process-section {
+    padding-block: 5rem;
+}
+
+/* Containerul de pași - folosește flexbox pentru aliniere */
+.process-steps {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Stilul pentru fiecare card individual */
+.process-step-card {
+    /* MODIFICARE CHEIE: Cardul ocupă minim 200px (mai mic) */
+    flex: 1 1 200px;
+    max-width: 300px; /* Limită maximă pe ecrane mari */
+    background-color: #1f1b1c;
+    border: 1px solid var(--text-light);
+    /* Redu padding-ul pentru a le face mai compacte */
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.process-step-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+/* Stil pentru containerul icon-ului și numărului */
+.step-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem; /* Redus */
+}
+
+/* Stil pentru numărul mare (1, 2, 3, 4) */
+.step-number {
+    font-family: var(--header-font);
+    font-size: 2rem; /* Redus */
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+/* Stil pentru iconiță */
+.step-icon i {
+    font-size: 3rem; /* Redus */
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+/* Titlul pasului */
+.process-step-card h3 {
+    font-family: var(--header-font);
+    font-size: 1.1rem; /* Redus */
+    color: var(--white);
+    margin-bottom: 0.8rem; /* Redus */
+}
+
+/* Textul descriptiv */
+.process-step-card p {
+    font-size: 0.85rem; /* Redus */
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* === RESPONSIVE DESIGN NOU === */
+
+/* Pe ecrane mari (> 1200px) */
+@media (min-width: 1200px) {
+    .process-step-card {
+        /* Setare exactă pentru 4 coloane: (100% / 4) - spațiul dintre ele */
+        flex: 1 1 calc(25% - 1.5rem);
+    }
+}
+
+/* Pentru tablete mari/laptop-uri mici (993px - 1199px) */
+@media (max-width: 1199px) and (min-width: 993px) {
+    .process-step-card {
+        flex: 1 1 calc(25% - 1.5rem); /* Păstrează 4 coloane, dacă este posibil */
+    }
+}
+
+/* Pentru tablete (768px - 992px) */
+@media (max-width: 992px) {
+    .process-step-card {
+        flex: 1 1 calc(33.33% - 1.33rem); /* Trei carduri pe rând */
+    }
+}
+
+/* Pentru telefoane (max-width: 767px) */
+@media (max-width: 767px) {
+    .process-step-card {
+        flex: 1 1 calc(50% - 1rem); /* Două carduri pe rând */
+    }
+}
+
+/* Pentru telefoane foarte mici */
+@media (max-width: 480px) {
+    .process-steps {
+        margin-top: 3rem;
+    }
+    .process-step-card {
+        flex: 1 1 100%; /* Un singur card pe rând */
+        max-width: none;
+        padding: 1.5rem;
+    }
+}
