@@ -1525,3 +1525,89 @@ CSS
         padding: 1.5rem;
     }
 }
+* === BRANDS SECTION (SCROLLING MARQUEE CU CARDURI) === */
+.brands-section {
+    padding-block: 5rem 0;
+}
+
+/* Containerul principal al benzii de derulare */
+.brands__container {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid #1f1b1c;
+    border-bottom: 1px solid #1f1b1c;
+    background-color: #0c0a0b;
+}
+
+/* Containerul care se mișcă */
+.brands__loop {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 60s linear infinite; /* Animația de derulare (poți ajusta timpul) */
+}
+
+/* Containerul pentru fiecare card (pentru a asigura spațiul dintre ele) */
+.brand__item {
+    padding: 0 1.5rem; /* Spațiere orizontală între carduri */
+}
+
+/* Stilul pentru cardul individual */
+.brand__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px; /* Lățimea fixă a cardului */
+    height: 120px; /* Înălțimea fixă a cardului */
+    background-color: #1f1b1c; /* Fundalul tău închis (similar cu celelalte carduri) */
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.brand__card:hover {
+    box-shadow: 0 0 15px var(--primary-color); /* Umbră roșie la hover */
+    transform: translateY(-5px); /* Efect de ridicare */
+}
+
+/* Stilul pentru imaginea logo-ului */
+.brand__card img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+
+    /* Logo-ul în tonuri de gri implicit */
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.5s, opacity 0.5s;
+}
+
+/* Stilul pentru numele brandului */
+.brand__card h4 {
+    font-family: var(--header-font);
+    font-size: 0.75rem; /* Text mic și vizibil */
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Efectul de culoare la hover (pe imagine) */
+.brand__card:hover img {
+    filter: grayscale(0%); /* Revine la culorile originale */
+    opacity: 1;
+}
+
+/* Definirea animației de derulare continuă */
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
