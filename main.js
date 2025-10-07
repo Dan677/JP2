@@ -19,11 +19,28 @@ menuBtn.addEventListener("click", () => {
   );
 });
 
-navLinks.addEventListener("click", () => {
-  navLinks.classList.remove("open");
-  menuBtnIcon.setAttribute("class", "ri-menu-4-line");
-});
+navLinks.addEventListener("click", (e) => {
+    const clickedElement = e.target;
 
+    // 1. Logica pentru OTHERS (Meniu Dropdown) - DOAR pe mobil
+    if (clickedElement.closest('.nav__dropdown') && clickedElement.tagName === 'A') {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            const submenu = clickedElement.closest('.nav__dropdown').querySelector('.nav__submenu');
+            if (submenu) {
+                // Presupune că ai clasa .open-mobile în CSS-ul tău de mobil
+                submenu.classList.toggle("open-mobile");
+            }
+            return;
+        }
+    }
+
+    // 2. Logica pentru închiderea meniului principal (pentru toate celelalte linkuri)
+    if (clickedElement.tagName === 'A') {
+        navLinks.classList.remove("open");
+        menuBtnIcon.setAttribute("class", "ri-menu-4-line");
+    }
+});
 
 // === CONFIGURARE SCROLLREVEAL ===
 const scrollRevealOption = {
