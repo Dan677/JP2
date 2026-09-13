@@ -49,10 +49,33 @@
 
 <header id="home">
   <div class="section__container header__container">
-    <h1 class="section__header">Find Your Perfect Ride Today</h1>
+    <div class="header__grid">
+      <!-- Coloana Stânga: Conținut text și butoane -->
+      <div class="header__content">
+        <div class="header__badge">
+          <i class="ri-shield-star-line"></i> PREMIUM US AUTO TRANSPORT
+        </div>
+        <h1 class="section__header">WHERE PRECISION MEETS THE ROAD</h1>
+        <p class="header__description">
+          "Fast, professional service. My classic car arrived without a scratch. Highly recommend JP Auto Transport for car shipping!"
+        </p>
+        <div class="header__actions">
+          <a href="#pricing" class="btn btn__primary">
+            <i class="ri-calculator-line"></i> GET INSTANT QUOTE
+          </a>
+          <a href="tel:+131261324444" class="btn btn__secondary">
+            <i class="ri-phone-fill"></i> CALL AN EXPERT
+          </a>
+        </div>
+      </div>
+
+      <!-- Coloana Dreapta: Poza ta (placeholder acum, o poți schimba oricând) -->
+      <div class="header__image">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Auto Transport Header Image" />
+      </div>
+    </div>
   </div>
 </header>
-
 <section class="section__container gallery__container" id="gallery">
   <p class="section__subheader">JP AUTO TRANSPORT</p>
   <h2 class="section__header">OUR GALLERY</h2>
@@ -109,9 +132,9 @@
       <div class="swiper-slide">
         <img src="assets/Gallery15.jpg" alt="gallery" />
       </div>
-        <div class="swiper-slide">
-          <img src="assets/Gallery17.jpg" alt="gallery" />
-        </div>
+      <div class="swiper-slide">
+        <img src="assets/Gallery17.jpg" alt="gallery" />
+      </div>
       <div class="swiper-slide">
         <img src="assets/Gallery16.jpg" alt="gallery" />
       </div>
@@ -140,7 +163,7 @@
         <img src="assets/jp11.jpg" alt="gallery" />
       </div>
     </div>
-    </div>
+  </div>
   </div>
 </section>
 
@@ -387,21 +410,21 @@
           <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
         </div>
       </div>
-        <div class="swiper-slide review__card">
-          <img src="assets/Daniel.jpg" alt="client" />
-          <h4>Daniel Oana</h4>
-          <p>"Overall, a decent experience. The team was professional and handled everything smoothly, from booking to delivery.
-            I went with the enclosed transport option, which I’d still recommend for better protection.
-            However, in my case, the delivery was delayed by one day compared to the original estimate, which was a bit inconvenient.
-            Still, I appreciate the team's effort and how they managed the situation."</p>
-          <div class="review__socials">
-            <a href="https://www.instagram.com/therealzzzeni?igsh=Ynpvc20zaWJnb3Nj"><i class="ri-instagram-line"></i></a>
-            <a href="https://www.facebook.com/share/1GhkuL77ww/?mibextid=wwXIfr"><i class="ri-facebook-circle-fill"></i></a>
-          </div>
-          <div class="rating">
-            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-line"></i>
-          </div>
+      <div class="swiper-slide review__card">
+        <img src="assets/Daniel.jpg" alt="client" />
+        <h4>Daniel Oana</h4>
+        <p>"Overall, a decent experience. The team was professional and handled everything smoothly, from booking to delivery.
+          I went with the enclosed transport option, which I’d still recommend for better protection.
+          However, in my case, the delivery was delayed by one day compared to the original estimate, which was a bit inconvenient.
+          Still, I appreciate the team's effort and how they managed the situation."</p>
+        <div class="review__socials">
+          <a href="https://www.instagram.com/therealzzzeni?igsh=Ynpvc20zaWJnb3Nj"><i class="ri-instagram-line"></i></a>
+          <a href="https://www.facebook.com/share/1GhkuL77ww/?mibextid=wwXIfr"><i class="ri-facebook-circle-fill"></i></a>
         </div>
+        <div class="rating">
+          <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-line"></i>
+        </div>
+      </div>
       <div class="swiper-slide review__card">
         <img src="assets/Ayo.jpg" alt="client" />
         <h4>Ayo Kwame Smith</h4>
@@ -415,7 +438,7 @@
         <div class="rating">
           <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-line"></i>
         </div>
-    </div>
+      </div>
       <div class="swiper-slide review__card">
         <img src="assets/Jayye.jpg" alt="client" />
         <h4>Jayye Felix</h4>
@@ -444,7 +467,7 @@
           <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
         </div>
       </div>
-  </div>
+    </div>
 </section>
 
 <section class="section__container" id="pricing">
@@ -473,103 +496,103 @@
     </div>
   </div>
 </section>
-  <section class="section__container pricing__factors__container">
-    <p class="section__subheader">TRANSPARENT PRICING</p>
-    <h2 class="section__header">KEY PRICING FACTORS</h2>
+<section class="section__container pricing__factors__container">
+  <p class="section__subheader">TRANSPARENT PRICING</p>
+  <h2 class="section__header">KEY PRICING FACTORS</h2>
 
-    <div class="pricing__factors__grid" id="pricing-factors">
+  <div class="pricing__factors__grid" id="pricing-factors">
 
-      <div class="factor__card">
-        <h4><i class="ri-map-pin-line"></i> Distance & Route</h4>
-        <p>The total transport cost is primarily calculated based on mileage and route efficiency. Longer distances naturally increase the cost due to fuel, labor, and time.
-          Furthermore, the route plays a vital role: transport on high-volume, major interstate corridors (like I-95 or I-80) is typically more affordable and faster than servicing remote, low-volume rural towns, which require special detours and extended scheduling.</p>
+    <div class="factor__card">
+      <h4><i class="ri-map-pin-line"></i> Distance & Route</h4>
+      <p>The total transport cost is primarily calculated based on mileage and route efficiency. Longer distances naturally increase the cost due to fuel, labor, and time.
+        Furthermore, the route plays a vital role: transport on high-volume, major interstate corridors (like I-95 or I-80) is typically more affordable and faster than servicing remote, low-volume rural towns, which require special detours and extended scheduling.</p>
+    </div>
+
+    <div class="factor__card">
+      <h4><i class="ri-time-line"></i> Season & Urgency</h4>
+      <p>Price and schedule are heavily influenced by the time of year and required speed. Demand and rates increase during peak seasons (summer, holidays), limiting carrier availability. Urgent Shipping prioritizes your vehicle for the fastest route but incurs a premium fee.
+        For the most favorable rates, we recommend booking during off-peak seasons with flexible dates.</p>
+    </div>
+
+    <div class="factor__card">
+      <h4><i class="ri-shield-line"></i> Vehicle Value & Type</h4> <p>Moving high-value automobiles—such as luxury brands, supercars, or irreplaceable classics—involves enhanced insurance policies and requires the use of specialized enclosed equipment for maximum protection against road debris and weather.
+      This necessary level of specialized care and increased liability coverage makes the transport of these particular vehicle types significantly more expensive than standard shipments.</p>
+    </div>
+
+    <div class="factor__card">
+      <h4><i class="ri-car-line"></i> Vehicle Condition & Loading</h4>
+      <p>The operational status of your vehicle directly affects the transport cost. Vehicles that are **inoperable** (cannot roll, steer, or brake) require specialized equipment like winches and increased labor time for safe loading and securing. This additional complexity and effort for handling non-running vehicles results in a mandatory **inoperable fee** added to the standard shipping rate.</p>
+    </div>
+  </div>
+</section>
+<section class="section__container instagram__container" id="states">
+  <p class="section__subheader">THE STATES WHERE</p>
+  <h2 class="section__header"> WE DELIVERED SO FAR</h2>
+  <div class="instagram__wrapper">
+    <div class="instagram__cards_scroll">
+      <div class="instagram__card">
+        <img src="assets/texas.jpg" alt="Detailing Day" />
+        <h4>Texas</h4>
       </div>
-
-      <div class="factor__card">
-        <h4><i class="ri-time-line"></i> Season & Urgency</h4>
-        <p>Price and schedule are heavily influenced by the time of year and required speed. Demand and rates increase during peak seasons (summer, holidays), limiting carrier availability. Urgent Shipping prioritizes your vehicle for the fastest route but incurs a premium fee.
-          For the most favorable rates, we recommend booking during off-peak seasons with flexible dates.</p>
+      <div class="instagram__card">
+        <img src="assets/michigan.png" alt="Car Storage" />
+        <h4>Michigan</h4>
       </div>
-
-      <div class="factor__card">
-        <h4><i class="ri-shield-line"></i> Vehicle Value & Type</h4> <p>Moving high-value automobiles—such as luxury brands, supercars, or irreplaceable classics—involves enhanced insurance policies and requires the use of specialized enclosed equipment for maximum protection against road debris and weather.
-        This necessary level of specialized care and increased liability coverage makes the transport of these particular vehicle types significantly more expensive than standard shipments.</p>
+      <div class="instagram__card">
+        <img src="assets/alabama.png" alt="Ceramic Coating" />
+        <h4>Alabama</h4>
       </div>
-
-      <div class="factor__card">
-        <h4><i class="ri-car-line"></i> Vehicle Condition & Loading</h4>
-        <p>The operational status of your vehicle directly affects the transport cost. Vehicles that are **inoperable** (cannot roll, steer, or brake) require specialized equipment like winches and increased labor time for safe loading and securing. This additional complexity and effort for handling non-running vehicles results in a mandatory **inoperable fee** added to the standard shipping rate.</p>
+      <div class="instagram__card">
+        <img src="assets/delaware.png" alt="PPF Install" />
+        <h4>Delaware</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/florida.png" alt="Luxury Event" />
+        <h4>Florida</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/illinois.png" alt="Wheels & Tyres" />
+        <h4>Illinois</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/arkansas.png" alt="Track Day" />
+        <h4>Arkansas</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/oklahoma.png" alt="Showcase" />
+        <h4>Oklahoma</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/Ohio.png" alt="Detailing Day" />
+        <h4>Ohio</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/Indiana.png" alt="Car Storage" />
+        <h4>Indiana</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/Kentucky.webp" alt="Ceramic Coating" />
+        <h4>Kentucky</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/New York.jpg" alt="PPF Install" />
+        <h4>New York</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/Tennesse.png" alt="PPF Install" />
+        <h4>Tennessee</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/Kansas.png" alt="PPF Install" />
+        <h4>Kansas</h4>
+      </div>
+      <div class="instagram__card">
+        <img src="assets/Missouri.png" alt="PPF Install" />
+        <h4>Missouri</h4>
       </div>
     </div>
-  </section>
-  <section class="section__container instagram__container" id="states">
-    <p class="section__subheader">THE STATES WHERE</p>
-    <h2 class="section__header"> WE DELIVERED SO FAR</h2>
-    <div class="instagram__wrapper">
-      <div class="instagram__cards_scroll">
-        <div class="instagram__card">
-          <img src="assets/texas.jpg" alt="Detailing Day" />
-          <h4>Texas</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/michigan.png" alt="Car Storage" />
-          <h4>Michigan</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/alabama.png" alt="Ceramic Coating" />
-          <h4>Alabama</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/delaware.png" alt="PPF Install" />
-          <h4>Delaware</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/florida.png" alt="Luxury Event" />
-          <h4>Florida</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/illinois.png" alt="Wheels & Tyres" />
-          <h4>Illinois</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/arkansas.png" alt="Track Day" />
-          <h4>Arkansas</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/oklahoma.png" alt="Showcase" />
-          <h4>Oklahoma</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/Ohio.png" alt="Detailing Day" />
-          <h4>Ohio</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/Indiana.png" alt="Car Storage" />
-          <h4>Indiana</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/Kentucky.webp" alt="Ceramic Coating" />
-          <h4>Kentucky</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/New York.jpg" alt="PPF Install" />
-          <h4>New York</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/Tennesse.png" alt="PPF Install" />
-          <h4>Tennessee</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/Kansas.png" alt="PPF Install" />
-          <h4>Kansas</h4>
-        </div>
-        <div class="instagram__card">
-          <img src="assets/Missouri.png" alt="PPF Install" />
-          <h4>Missouri</h4>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 <section class="section__container contact__container" id="contact">
   <p class="section__subheader">GET A QUOTE</p>
   <h2 class="section__header">CONTACT US</h2>
@@ -976,7 +999,7 @@
         For us, EV Logistics means understanding that worry. We immediately assigned an Enclosed Carrier—the ultimate shield against road grime, dust, and weather during the long haul.
         Our specialized drivers don't just load the car; they activate the transport mode, ensure zero movement, and constantly monitor the battery status.
         The delivery was flawless. The pure joy of seeing their car arrive thousands of miles away, in the exact same condition it was picked up, is the best confirmation of our premium service.
-       <strong>We don't just transport cars. We deliver your property, exactly as you left it.</strong>
+        <strong>We don't just transport cars. We deliver your property, exactly as you left it.</strong>
       </p>
     </div>
 
@@ -1109,158 +1132,158 @@ Voi folosi clasa ta existentă .section__container pentru a menține alinierea c
       </div>
     </div>
   </section>
-    <section class="brands-section" id="brands">
-      <div class="section__container">
-        <h2 class="section__header">BRANDS WE SHIP TO OUR CLIENTS</h2>
-        <p class="section__subheader">
-          FROM LUXURY TO CLASSIC, YOUR CAR IS IN SAFE HANDS
-        </p>
-      </div>
+  <section class="brands-section" id="brands">
+    <div class="section__container">
+      <h2 class="section__header">BRANDS WE SHIP TO OUR CLIENTS</h2>
+      <p class="section__subheader">
+        FROM LUXURY TO CLASSIC, YOUR CAR IS IN SAFE HANDS
+      </p>
+    </div>
 
-      <div class="brands__container">
-        <div class="brands__loop">
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/Audi.jpg" alt="Audi Logo" />
-              <h4>AUDI</h4>
-            </div>
+    <div class="brands__container">
+      <div class="brands__loop">
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/Audi.jpg" alt="Audi Logo" />
+            <h4>AUDI</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/Chevrolet.jpg" alt="BMW Logo" />
-              <h4>CHEVROLET</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/Chevrolet.jpg" alt="BMW Logo" />
+            <h4>CHEVROLET</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/Chrysler.png" alt="Mercedes Logo" />
-              <h4>CHRYSLER</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/Chrysler.png" alt="Mercedes Logo" />
+            <h4>CHRYSLER</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/Dodge.png" alt="Porsche Logo" />
-              <h4>DODGE</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/Dodge.png" alt="Porsche Logo" />
+            <h4>DODGE</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/LINCOLN.png" alt="Tesla Logo" />
-              <h4>LINCOLN</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/LINCOLN.png" alt="Tesla Logo" />
+            <h4>LINCOLN</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/PONTIAC.png" alt="Ford Logo" />
-              <h4>PONTIAC</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/PONTIAC.png" alt="Ford Logo" />
+            <h4>PONTIAC</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/BUICK.jpg" alt="Ferrari Logo" />
-              <h4>BUICK</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/BUICK.jpg" alt="Ferrari Logo" />
+            <h4>BUICK</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/VOLKSWAGEN.jpg" alt="Toyota Logo" />
-              <h4>VOLKSWAGEN</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/VOLKSWAGEN.jpg" alt="Toyota Logo" />
+            <h4>VOLKSWAGEN</h4>
           </div>
+        </div>
 
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/Audi.jpg" alt="Audi Logo" />
-              <h4>AUDI</h4>
-            </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/Audi.jpg" alt="Audi Logo" />
+            <h4>AUDI</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/BMW.jpg" alt="BMW Logo" />
-              <h4>BMW</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/BMW.jpg" alt="BMW Logo" />
+            <h4>BMW</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/mercedes.jpg" alt="Mercedes Logo" />
-              <h4>MERCEDES-BENZ</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/mercedes.jpg" alt="Mercedes Logo" />
+            <h4>MERCEDES-BENZ</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/porsche.png" alt="Porsche Logo" />
-              <h4>PORSCHE</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/porsche.png" alt="Porsche Logo" />
+            <h4>PORSCHE</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/tesla.png" alt="Tesla Logo" />
-              <h4>TESLA</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/tesla.png" alt="Tesla Logo" />
+            <h4>TESLA</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/Ford.png" alt="Ford Logo" />
-              <h4>FORD</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/Ford.png" alt="Ford Logo" />
+            <h4>FORD</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/ferrari.png" alt="Ferrari Logo" />
-              <h4>FERRARI</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/ferrari.png" alt="Ferrari Logo" />
+            <h4>FERRARI</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/GMC.png" alt="Toyota Logo" />
-              <h4>GMC</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/GMC.png" alt="Toyota Logo" />
+            <h4>GMC</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/SUBARU.jpg" alt="Toyota Logo" />
-              <h4>SUBARU</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/SUBARU.jpg" alt="Toyota Logo" />
+            <h4>SUBARU</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/HONDA.jpg" alt="Toyota Logo" />
-              <h4>HONDA</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/HONDA.jpg" alt="Toyota Logo" />
+            <h4>HONDA</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/SKODA.png" alt="Toyota Logo" />
-              <h4>SKODA</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/SKODA.png" alt="Toyota Logo" />
+            <h4>SKODA</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/JEEP.jpg" alt="Toyota Logo" />
-              <h4>JEEP</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/JEEP.jpg" alt="Toyota Logo" />
+            <h4>JEEP</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/MUSTANG.png" alt="Toyota Logo" />
-              <h4>MUSTANG</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/MUSTANG.png" alt="Toyota Logo" />
+            <h4>MUSTANG</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/Toyota.jpg" alt="Toyota Logo" />
-              <h4>TOYOTA</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/Toyota.jpg" alt="Toyota Logo" />
+            <h4>TOYOTA</h4>
           </div>
-          <div class="brand__item">
-            <div class="brand__card">
-              <img src="assets/LEXUS.png" alt="Ferrari Logo" />
-              <h4>LEXUS</h4>
-            </div>
+        </div>
+        <div class="brand__item">
+          <div class="brand__card">
+            <img src="assets/LEXUS.png" alt="Ferrari Logo" />
+            <h4>LEXUS</h4>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
 
   <footer>
@@ -1273,49 +1296,49 @@ Voi folosi clasa ta existentă .section__container pentru a menține alinierea c
           WE OFFER A WIDE RANGE OF NEW AND USED CARS WITH THE BEST DEALS AND TRUSTED SERVICE.
         </p>
       </div>
-    <div class="footer__col">
-      <h4>QUICK LINKS</h4>
-      <ul class="footer__links">
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT US</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#carriers">CARRIERS</a></li>
-        <li><a href="#reviews">REVIEWS</a></li>
-        <li><a href="#pricing">CALCULATOR</a></li>
-        <li><a href="#footprint">OUR FOOTPRINT</a></li>
-        <li><a href="#faqs">FAQS</a></li>
-        <li><a href="#stats">STATS</a></li>
-        <li><a href="#contact">CONTACT US</a></li>
-      </ul>
+      <div class="footer__col">
+        <h4>QUICK LINKS</h4>
+        <ul class="footer__links">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT US</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#carriers">CARRIERS</a></li>
+          <li><a href="#reviews">REVIEWS</a></li>
+          <li><a href="#pricing">CALCULATOR</a></li>
+          <li><a href="#footprint">OUR FOOTPRINT</a></li>
+          <li><a href="#faqs">FAQS</a></li>
+          <li><a href="#stats">STATS</a></li>
+          <li><a href="#contact">CONTACT US</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>SERVICES</h4>
+        <ul class="footer__links">
+          <li><a href="#services">CAR TRANSPORT</a></li>
+          <li><a href="#services">EV LOGISTICS</a></li>
+          <li><a href="#services">STORAGE</a></li>
+          <li><a href="#services">URGENT SHIPPING</a></li>
+          <li><a href="#services">INOPERABLE VEHICLES</a></li>
+          <li><a href="#services">INSURANCE</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>FOLLOW US ON:</h4>
+        <ul class="footer__socials">
+          <li>
+            <a href="https://www.instagram.com/jpautotransport?igsh=cjYzZzhiMTdodmV3"><i class="ri-instagram-line"></i></a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="footer__col">
-      <h4>SERVICES</h4>
-      <ul class="footer__links">
-        <li><a href="#services">CAR TRANSPORT</a></li>
-        <li><a href="#services">EV LOGISTICS</a></li>
-        <li><a href="#services">STORAGE</a></li>
-        <li><a href="#services">URGENT SHIPPING</a></li>
-        <li><a href="#services">INOPERABLE VEHICLES</a></li>
-        <li><a href="#services">INSURANCE</a></li>
-      </ul>
+    <div class="footer__bar">
+      COPYRIGHT © 2025 JP AUTO TRANSPORT. ALL RIGHTS RESERVED.
     </div>
-    <div class="footer__col">
-      <h4>FOLLOW US ON:</h4>
-      <ul class="footer__socials">
-        <li>
-          <a href="https://www.instagram.com/jpautotransport?igsh=cjYzZzhiMTdodmV3"><i class="ri-instagram-line"></i></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer__bar">
-    COPYRIGHT © 2025 JP AUTO TRANSPORT. ALL RIGHTS RESERVED.
-  </div>
-</footer>
+  </footer>
 
-<script src="https://unpkg.com/scrollreveal"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-<script src="main.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="main.js"></script>
   <!-- Floating WhatsApp Button -->
   <a href="https://wa.me/+131261324444" target="_blank" rel="noopener noreferrer" class="whatsapp__float" aria-label="Chat on WhatsApp">
     <i class="ri-whatsapp-line"></i>
